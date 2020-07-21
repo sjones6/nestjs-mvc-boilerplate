@@ -1,6 +1,8 @@
 # nest-mvc-boilerplate
 
-There's a lot more to a full-stack Nestjs application that just a templating engine.
+There's more to a full-stack Nestjs application that just a templating engine.
+
+> :warning: **WIP**: this boilerplate is still in progress. See the [TODO](#todo) for what's left.
 
 ## Features
 
@@ -27,21 +29,21 @@ Update the `ormconfg.json` `type` property. Be sure to `npm install` the appropr
 ## TODO
 
 **General**
-[] templating engine
-[] dotenv
-[] tailwind
-[] alpinejs
-[] turbolinks
+[ ] templating engine
+[ ] dotenv
+[ ] tailwind
+[ ] alpinejs
+[ ] turbolinks
 
 **DB**
-[] TypeORM
-[] User entity
-[] SQLlite
-[] migrations
+[ ] TypeORM
+[ ] User entity
+[ ] SQLlite
+[ ] migrations
 
 **Sessions**
-[] plumbing
-[] local auth
-[] Github OAuth
-[] flash messages
-[] CSRF protection
+[ ] plumbing
+[ ] local auth
+[ ] Github OAuth
+[ ] flash messages
+[ ] CSRF protection

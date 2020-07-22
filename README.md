@@ -30,15 +30,15 @@ Update the `ormconfg.json` `type` property. Be sure to `npm install` the appropr
 
 **General**
 [ ] templating engine
-[ ] dotenv
+[x] dotenv
 [ ] tailwind
 [ ] alpinejs
 [ ] turbolinks
 
 **DB**
-[ ] TypeORM
-[ ] User entity
-[ ] SQLlite
+[x] TypeORM
+[x] User entity
+[x] SQLlite
 [ ] migrations
 
 **Sessions**

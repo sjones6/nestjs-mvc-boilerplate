@@ -1,6 +1,6 @@
 # nest-mvc-boilerplate
 
-There's more to a full-stack Nestjs application that just a templating engine.
+There is more to a full-stack Nestjs application that just a templating engine.
 
 > :warning: **WIP**: this boilerplate is still in progress. See the [TODO](#todo) for what's left.
 
@@ -18,7 +18,18 @@ There's more to a full-stack Nestjs application that just a templating engine.
 
 ## Templating
 
-This boilerplate takes a different stance with it's templating engine.
+This boilerplate takes a different stance with it's templating engine by using [Stongly-typed views](https://www.npmjs.com/package/nest-jsx-template-engine).
+
+Rather than require a _different_ template compiler which uses yet-another templating syntax, this boilerplate sticks with JSX and `.tsx` files, which ships natively with the TypeScript compiler.
+
+This has a few advantages:
+
+* No extra run-time dependencies - templates compile to pure JS functions at build time
+* Fully type-safe views - .tsx files support all types
+* No reading off the file-system at runtime
+* Fails to compile if templates don't exist
+
+However, if you want to switch your template engine, you are free to do so. See the [nestjs docs](https://docs.nestjs.com/techniques/mvc) on how to integrate template engines like Handlebars or Nunjucks.
 
 ## Swapping the Persistance Layer
 
@@ -49,3 +60,8 @@ See [TypeORM's docs](https://typeorm.io/#/connection-options) for more details.
 [ ] Github OAuth
 [ ] flash messages
 [ ] CSRF protection
+
+**Application**
+[ ] Register
+[ ] Login
+[ ] Home/Logged-in Screen

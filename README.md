@@ -24,16 +24,18 @@ This boilerplate takes a different stance with it's templating engine.
 
 By default, the boilerplate starts with SQLlite, so it doesn't have any extra runtime dependencies.  You can easily change this to something else.
 
-Update the `ormconfg.json` `type` property. Be sure to `npm install` the appropriate driver (and uninstall the SQLlite driver).
+Update the `ormconfg.json` `type` property. Be sure to `npm install` the appropriate driver (and uninstall the SQLlite driver). 
+
+See [TypeORM's docs](https://typeorm.io/#/connection-options) for more details.
 
 ## TODO
 
 **General**
-[ ] templating engine
+[x] templating engine
 [x] dotenv
-[ ] tailwind
-[ ] alpinejs
-[ ] turbolinks
+[x] tailwind
+[x] alpinejs
+[x] turbolinks
 
 **DB**
 [x] TypeORM

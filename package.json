@@ -24,7 +24,17 @@
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/typeorm": "^7.1.0",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "csurf": "^1.11.0",
     "dotenv": "^8.2.0",
+    "express-session": "^1.17.1",
+    "express-session-sqlite": "^2.0.6",
+    "helmet": "^3.23.3",
+    "method-override": "^3.0.0",
+    "module-alias": "^2.2.2",
     "nest-jsx-template-engine": "^0.1.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
@@ -37,7 +47,8 @@
     "@nestjs/cli": "^7.0.0",
     "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
-    "@types/express": "^4.17.3",
+    "@types/express": "^4.17.7",
+    "@types/express-session": "^1.17.0",
     "@types/jest": "25.1.4",
     "@types/node": "^13.9.1",
     "@types/supertest": "^2.0.8",
@@ -55,5 +66,10 @@
     "ts-node": "^8.10.2",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^3.7.4"
+  },
+  "_moduleAliases": {
+    "@partials": "./dist/views/partials",
+    "@layouts": "./dist/views/layouts",
+    "@components": "./dist/views/components"
   }
 }

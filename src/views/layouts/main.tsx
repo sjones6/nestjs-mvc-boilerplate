@@ -1,11 +1,12 @@
 import { h } from 'nest-jsx-template-engine'
+import { Nav } from '@partials/nav';
 
 interface ILayoutProps {
   title: string,
   children?: any
 }
 
-export function Layout(props: ILayoutProps) {
+export function MainLayout(props: ILayoutProps) {
   return <html lang="en">
     <head>
       <meta charset="UTF-8" />
@@ -34,8 +35,12 @@ export function Layout(props: ILayoutProps) {
 
     </head>
 
-    <body class="bg-white font-family-karla h-screen" style="font-family: 'Source Sans Pro', sans-serif;">
-      {props.children}
+    <body class="bg-gray-100 font-family-karla h-screen" style="font-family: 'Source Sans Pro', sans-serif;">
+      <Nav />
+      <div class="container mx-auto py-4">
+        {props.children}
+      </div>
+      
     </body>
     
   </html>

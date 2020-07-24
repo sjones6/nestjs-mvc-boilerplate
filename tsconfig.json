@@ -10,8 +10,14 @@
     "jsxFactory": "h",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true
+    "baseUrl": ".",
+    "paths": {
+      "@layouts/*": ["src/views/layouts/*"],
+      "@partials/*": ["src/views/partials/*"],
+      "@components/*": ["src/views/components/*"],
+    },
+    "incremental": true,
+
   },
   "exclude": ["node_modules", "dist"]
 }

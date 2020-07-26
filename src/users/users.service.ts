@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { User } from './user.entity';
 import { UserRepository } from './user.repository';
-import * as bcrypt from 'bcrypt';
+import bcrypt from 'bcrypt';
 
 const SALT_ROUNDS = 10;
 

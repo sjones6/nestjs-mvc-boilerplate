@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "esModuleInterop": true,
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
@@ -12,12 +13,12 @@
     "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
+      "@interfaces/*": ["src/interfaces/*"],
       "@layouts/*": ["src/views/layouts/*"],
       "@partials/*": ["src/views/partials/*"],
       "@components/*": ["src/views/components/*"],
     },
-    "incremental": true,
-
+    "incremental": true
   },
   "exclude": ["node_modules", "dist"]
 }

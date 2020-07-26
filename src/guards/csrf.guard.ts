@@ -1,5 +1,5 @@
 import { ExecutionContext, Injectable, CanActivate } from '@nestjs/common';
-import * as csrf from 'csurf';
+import csrf from 'csurf';
 import { CsrfException } from 'src/exceptions/CsrfException';
 
 @Injectable()

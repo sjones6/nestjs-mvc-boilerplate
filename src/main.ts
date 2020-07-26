@@ -4,12 +4,12 @@ import { config } from 'dotenv';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { CsrfGuard } from './guards/csrf.guard';
-import * as cookieParser from 'cookie-parser';
+import cookieParser from 'cookie-parser';
 import { urlencoded } from 'body-parser';
-import * as helmet from 'helmet';
-import * as session from 'express-session';
-import * as flash from 'connect-flash'
-import * as sqlite3 from 'sqlite3';
+import helmet from 'helmet';
+import session from 'express-session';
+import flash from 'connect-flash'
+import sqlite3 from 'sqlite3';
 import sqliteStoreFactory from 'express-session-sqlite';
 
 // reads .env file

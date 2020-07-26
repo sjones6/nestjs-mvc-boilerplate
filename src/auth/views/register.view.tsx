@@ -1,9 +1,15 @@
-import { h } from 'nest-jsx-template-engine';
+import { h, JSXTemplate } from 'nest-jsx-template-engine';
 import { MainLayout } from '@layouts/main';
 import { TextInput, PasswordInput } from '@components/inputs';
+import { App } from '@interfaces/render'
+import { RegisterDto } from '../auth.dto';
 
-export function Register(props) {
-  return <MainLayout title="Register">
+export interface IRegisterProps extends App.RenderProps {
+  $old: RegisterDto
+}
+
+export function Register(props: IRegisterProps) {
+  return <MainLayout title="Register" {...props}>
     <form class="flex flex-col pt-3 md:pt-8" action="/register" method="post">
 
       <div class="flex flex-col pt-4">
@@ -26,9 +32,9 @@ export function Register(props) {
         <PasswordInput name="password" value='' placeholder="Password" />
       </div>
 
-      <TextInput type="hidden" value={props.csrfToken} name="_csrf" />
+      <TextInput type="hidden" value={props.$session.csrfToken} name="_csrf" />
 
-      <input type="submit" value="Log In" class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8" />
+      <input type="submit" value="Register" class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8" />
     </form>
     <div class="text-center pt-12 pb-12">
       <p>Already have an account? <a href="/login" class="underline font-semibold">Login.</a></p>

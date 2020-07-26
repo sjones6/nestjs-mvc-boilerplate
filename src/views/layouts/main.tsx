@@ -1,9 +1,12 @@
 import { h } from 'nest-jsx-template-engine'
 import { Nav } from '@partials/nav';
+import { User } from 'src/users/user.entity';
+import { ErrorAlert, InfoAlert, SuccessAlert } from '@components/alerts';
+import { App } from '@interfaces/render';
 
-interface ILayoutProps {
+interface ILayoutProps extends App.RenderProps {
   title: string,
-  children?: any
+  children?: any,
 }
 
 export function MainLayout(props: ILayoutProps) {
@@ -36,12 +39,13 @@ export function MainLayout(props: ILayoutProps) {
     </head>
 
     <body class="bg-gray-100 font-family-karla h-screen" style="font-family: 'Source Sans Pro', sans-serif;">
-      <Nav />
-      <div class="container mx-auto py-4">
+      <Nav user={props.$session.user} />
+      <div class="container mx-auto p-4">
+        {props.$session.messages.info ? props.$session.messages.info.map(msg => <InfoAlert message={msg} />) : null}
+        {props.$session.messages.error ? props.$session.messages.error.map(msg => <ErrorAlert message={msg} />) : null}
+        {props.$session.messages.success ? props.$session.messages.success.map(msg => <SuccessAlert message={msg} />) : null}
         {props.children}
       </div>
-      
     </body>
-    
   </html>
 }

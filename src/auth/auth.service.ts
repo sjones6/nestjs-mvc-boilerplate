@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { User } from '../users/user.entity';
-import * as bcrypt from 'bcrypt';
+import bcrypt from 'bcrypt';
 import { UsersService } from 'src/users/users.service';
 
 const SALT_ROUNDS = 10;

@@ -1,9 +1,15 @@
 import { h } from 'nest-jsx-template-engine';
 import { MainLayout } from '@layouts/main';
 import { TextInput, PasswordInput } from '@components/inputs';
+import { LoginDto } from '../auth.dto';
+import { App } from '@interfaces/render';
 
-export function Login(props) {
-  return <MainLayout title="Login">
+export interface ILoginProps extends App.RenderProps {
+  $old: LoginDto
+}
+
+export function Login(props: ILoginProps) {
+  return <MainLayout title="Login" {...props}>
     <form class="flex flex-col pt-3 md:pt-8" action="/login" method="post">
       <div class="flex flex-col pt-4">
         <label for="email" class="text-lg">Email</label>
@@ -15,7 +21,7 @@ export function Login(props) {
         <PasswordInput name="password" value='' placeholder="Password" />
       </div>
 
-      <TextInput type="hidden" value={props.csrfToken} name="_csrf" />
+      <TextInput type="hidden" value={props.$session.csrfToken} name="_csrf" />
 
       <input type="submit" value="Log In" class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8" />
     </form>

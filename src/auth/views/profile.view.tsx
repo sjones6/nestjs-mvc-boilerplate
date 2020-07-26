@@ -1,13 +1,14 @@
 import { h } from 'nest-jsx-template-engine';
 import { MainLayout } from '@layouts/main';
+import { User } from 'src/users/user.entity';
+import { App } from '@interfaces/render';
 
-interface IProfileProps {
-  email?: number
+export interface IProfileProps extends App.RenderProps {
+  user: User
 }
 
 export function Profile(props: IProfileProps) {
-  return <MainLayout title="Login">
-     Hey, {props.email}!
-     <a href="/logout">Logout</a>
+  return <MainLayout title="Login" {...props}>
+     Hey, {props.user.email}!
   </MainLayout>
 }

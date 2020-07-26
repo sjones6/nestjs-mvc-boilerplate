@@ -1,7 +1,14 @@
 import { Controller, Get, Post, Body, Res, Req, UseGuards } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { Render } from 'nest-jsx-template-engine';
-import { Login, Register, Profile } from './views/index'
+import {
+  Login,
+  ILoginProps,
+  Register,
+  IRegisterProps,
+  Profile,
+  IProfileProps
+} from './views/index'
 import { RegisterDto, LoginDto } from './auth.dto';
 import { Response, Request } from 'express';
 import { AuthService } from './auth.service';
@@ -14,29 +21,29 @@ export class AuthController {
   constructor(private readonly usersService: UsersService, private readonly authService: AuthService) { }
 
   @Get('/login')
-  @Render(Login)
-  getLogin(): void { }
+  @Render<ILoginProps>(Login)
+  getLogin(): Partial<ILoginProps> {
+    return {}
+  }
 
   @Post('/login')
-  @Render(Login)
   async doLogin(@Body() body: LoginDto, @Res() res: Response, @Req() req: Request): Promise<void> {
-    const user = await this.authService.verifyCredentisl(body.email, body.password);
+    const user: User = await this.authService.verifyCredentisl(body.email, body.password);
     req.session.user_id = user.id;
+    req.flash('success', 'You\'re logged in!');
     res.redirect(302, '/profile');
   }
 
   @Get('/profile')
   @UseGuards(AuthenticatedGuard)
-  @Render(Profile)
-  onLogin(@Req() req: Request): User {
-    return req.user;
+  @Render<IProfileProps>(Profile)
+  onLogin(@Req() req: Request): Partial<IProfileProps> {
+    return { user: req.user };
   }
 
   @Get('/register')
-  @Render(Register)
-  getRegister(@Req() req): void { 
-    console.log('user_id: ' + req.session.user_id);
-  }
+  @Render<IRegisterProps>(Register)
+  getRegister(@Req() req): void { }
 
   @Post('/register')
   async doRegister(@Body() body: RegisterDto, @Res() res: Response): Promise<void> {

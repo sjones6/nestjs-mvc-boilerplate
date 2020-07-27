@@ -1,13 +1,13 @@
-import { h, JSXTemplate } from 'nest-jsx-template-engine';
+import { h } from 'nest-jsx-template-engine';
 import { MainLayout } from '@layouts/main';
 import { App } from '@interfaces/render'
 
-export interface IHelloProps extends App.RenderProps {
+export interface IHelloProps  {
   name: string
 }
 
-export function Hello(props: IHelloProps) {
+export function Hello(data: IHelloProps, props: App.RenderProps) {
   return <MainLayout title="Hello World" {...props}>
-    {props.name}
+    {data.name}
   </MainLayout>
 }

@@ -8,7 +8,7 @@ export interface IRegisterProps extends App.RenderProps {
   $old: RegisterDto
 }
 
-export function Register(props: IRegisterProps) {
+export function Register(data: any, props: IRegisterProps) {
   return <MainLayout title="Register" {...props}>
     <form class="flex flex-col pt-3 md:pt-8" action="/register" method="post">
 

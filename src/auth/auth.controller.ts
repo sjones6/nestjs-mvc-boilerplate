@@ -3,11 +3,8 @@ import { UsersService } from '../users/users.service';
 import { Render } from 'nest-jsx-template-engine';
 import {
   Login,
-  ILoginProps,
   Register,
-  IRegisterProps,
   Profile,
-  IProfileProps
 } from './views/index'
 import { RegisterDto, LoginDto } from './auth.dto';
 import { Response, Request } from 'express';
@@ -21,10 +18,8 @@ export class AuthController {
   constructor(private readonly usersService: UsersService, private readonly authService: AuthService) { }
 
   @Get('/login')
-  @Render<ILoginProps>(Login)
-  getLogin(): Partial<ILoginProps> {
-    return {}
-  }
+  @Render<void>(Login)
+  getLogin(): void { }
 
   @Post('/login')
   async doLogin(@Body() body: LoginDto, @Res() res: Response, @Req() req: Request): Promise<void> {
@@ -36,13 +31,13 @@ export class AuthController {
 
   @Get('/profile')
   @UseGuards(AuthenticatedGuard)
-  @Render<IProfileProps>(Profile)
-  onLogin(@Req() req: Request): Partial<IProfileProps> {
-    return { user: req.user };
+  @Render<User>(Profile)
+  onLogin(@Req() req: Request): User {
+    return req.user;
   }
 
   @Get('/register')
-  @Render<IRegisterProps>(Register)
+  @Render<void>(Register)
   getRegister(@Req() req): void { }
 
   @Post('/register')

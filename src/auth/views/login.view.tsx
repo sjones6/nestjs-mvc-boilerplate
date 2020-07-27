@@ -8,7 +8,7 @@ export interface ILoginProps extends App.RenderProps {
   $old: LoginDto
 }
 
-export function Login(props: ILoginProps) {
+export function Login(data: any, props: ILoginProps) {
   return <MainLayout title="Login" {...props}>
     <form class="flex flex-col pt-3 md:pt-8" action="/login" method="post">
       <div class="flex flex-col pt-4">

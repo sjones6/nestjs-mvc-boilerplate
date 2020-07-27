@@ -36,7 +36,7 @@
     "helmet": "^3.23.3",
     "method-override": "^3.0.0",
     "module-alias": "^2.2.2",
-    "nest-jsx-template-engine": "^0.2.0",
+    "nest-jsx-template-engine": "^0.2.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",

@@ -3,12 +3,8 @@ import { MainLayout } from '@layouts/main';
 import { User } from 'src/users/user.entity';
 import { App } from '@interfaces/render';
 
-export interface IProfileProps extends App.RenderProps {
-  user: User
-}
-
-export function Profile(props: IProfileProps) {
-  return <MainLayout title="Login" {...props}>
-     Hey, {props.user.email}!
+export function Profile(user: User, props: App.RenderProps) {
+  return <MainLayout title='Profile' {...props}>
+     Hey,             {user.email}!
   </MainLayout>
 }

@@ -113,10 +113,11 @@ See [TypeORM's docs](https://typeorm.io/#/connection-options) for more details.
 - [x] error handling
 
 **Components**
-- [] Button
-- [] Inputs
+- [ ] Button
+- [x] Inputs
 - [x] Alerts
+- [x] Basic application screen
 
 **CI/CI**
-- [] comprehensive test suite
-- [] run tests via GH actions
+- [ ] comprehensive test suite
+- [ ] run tests via GH actions

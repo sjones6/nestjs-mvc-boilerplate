@@ -110,7 +110,7 @@ See [TypeORM's docs](https://typeorm.io/#/connection-options) for more details.
 - [x] Register
 - [x] Login
 - [x] Home/Logged-in Screen
-- [] error handling
+- [x] error handling
 
 **Components**
 - [] Button

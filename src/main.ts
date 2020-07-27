@@ -11,6 +11,8 @@ import session from 'express-session';
 import flash from 'connect-flash'
 import sqlite3 from 'sqlite3';
 import sqliteStoreFactory from 'express-session-sqlite';
+import { HttpExceptionFilter } from './exceptions/http-exception.filter';
+import { ViewMiddleware } from './middlewares/view.middleware';
 
 // reads .env file
 config();
@@ -39,6 +41,8 @@ async function bootstrap() {
   // protects non-GET routes from CSRF attack vectors
   app.useGlobalGuards(new CsrfGuard());
 
+  // shows user-friendly messages
+  app.useGlobalFilters(new HttpExceptionFilter(new ViewMiddleware()));
   await app.listen(3000);
 }
 bootstrap();

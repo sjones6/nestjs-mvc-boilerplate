@@ -13,6 +13,35 @@
       ],
       "port": 9229,
       "restart": true
-    }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "run tests + watch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "console": "integratedTerminal",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "args": [
+        "./src/**/*.spec.ts",
+        "--watch"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "run e2e tests + watch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "console": "integratedTerminal",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "args": [
+        "./src/**/*.e2e.ts",
+        "--file=./test/setup.e2e.ts",
+        "--watch"
+      ]
+    },
   ]
 }

@@ -7,11 +7,26 @@ import { AuthModule } from './auth/auth.module';
 import { CsrfMiddleware } from './middlewares/csrf.middleware';
 import { ViewMiddleware } from './middlewares/view.middleware';
 import { UserSessionMiddleware } from './middlewares/user-session.middleware';
+import { User } from './users/user.entity';
 
 @Module({
   imports: [
     AuthModule,
-    TypeOrmModule.forRoot(), // see ormconfig.ts for config options
+    TypeOrmModule.forRoot({
+      type: "sqlite",
+      database: "./data/app.sqlite",
+      entities: [
+        User
+      ],
+      migrationsTableName: "_migrations",
+      migrations: ["dist/migrations/*.js"],
+      cli: {
+          "migrationsDir": "migration"
+      },
+      synchronize: true,
+      logging: false,
+      keepConnectionAlive: true
+    }), // see ormconfig.ts for config options
     UsersModule
   ],
   controllers: [AppController],

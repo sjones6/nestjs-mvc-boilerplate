@@ -10,9 +10,10 @@ module.exports = {
   timeout: watchMode ? 0 : 2000,
   require: [
     'ts-node/register',
+    'module-alias/register',
     'node_modules/reflect-metadata/Reflect.js'
   ],
   ui: 'bdd',
-  'watch-files': ['src/**/*.ts', 'src/**/*.js'],
-  'watch-ignore': ['node_modules']
+  'watch-files': ['./src/**/*', './test/**/*'],
+  'watch-ignore': ['node_modules', '.git', './dist', './data', './github', './vscode']
 };

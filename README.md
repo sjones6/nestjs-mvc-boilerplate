@@ -120,4 +120,4 @@ See [TypeORM's docs](https://typeorm.io/#/connection-options) for more details.
 
 **CI/CI**
 - [ ] comprehensive test suite
-- [ ] run tests via GH actions
+- [x] run tests via GH actions

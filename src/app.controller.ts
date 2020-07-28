@@ -9,7 +9,7 @@ export class AppController {
 
   @Get()
   @Render<IHelloProps>(Hello)
-  getHello(): Partial<IHelloProps> {
+  getHello(): IHelloProps {
     return {
       name: this.appService.getHello()
     }

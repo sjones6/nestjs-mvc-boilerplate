@@ -1,4 +1,4 @@
-name: Run Tests
+name: Build & Test
 
 on:
   push:
@@ -6,17 +6,26 @@ on:
       - master
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-16.04
-    strategy:
-      matrix:
-        node: [ '8', '10', '12' ]
-    name: Node ${{ matrix.node }} sample
+    name: Run Tests
     steps:
       - uses: actions/checkout@v2
       - name: Setup node
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 12
       - run: npm install --no-audit
       - run: npm test
+      - run: npm run test:e2e
+  build:
+    runs-on: ubuntu-16.04
+    name: Build
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm install --no-audit
+      - run: npm run build

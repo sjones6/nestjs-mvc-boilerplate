@@ -1,7 +1,7 @@
 /// <reference path="./global.d.ts" />
 
 import { bootstrap } from '../src/bootstrap';
-import { before } from 'mocha';
+import { before, after } from 'mocha';
 
 before(async () => {
   if (global.app) {

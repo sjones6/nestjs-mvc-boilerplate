@@ -1,3 +1,5 @@
+/// <reference path="../../test/global.d.ts" />
+
 import request from 'supertest';
 
 describe('AuthController (e2e)', () => {

@@ -45,6 +45,5 @@ export async function bootstrap() {
 
   // shows user-friendly messages
   app.useGlobalFilters(new HttpExceptionFilter(new ViewMiddleware()));
-  await app.listen(3000);
   return app;
 }

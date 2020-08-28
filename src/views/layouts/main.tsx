@@ -53,17 +53,17 @@ export function MainLayout(props: ILayoutProps) {
         <Nav user={props.$session.user} />
         <div class="container mx-auto p-4">
           {props.$session.messages.info
-            ? props.$session.messages.info.map(msg => (
+            ? props.$session.messages.info.map((msg) => (
                 <InfoAlert message={msg} />
               ))
             : null}
           {props.$session.messages.error
-            ? props.$session.messages.error.map(msg => (
+            ? props.$session.messages.error.map((msg) => (
                 <ErrorAlert message={msg} />
               ))
             : null}
           {props.$session.messages.success
-            ? props.$session.messages.success.map(msg => (
+            ? props.$session.messages.success.map((msg) => (
                 <SuccessAlert message={msg} />
               ))
             : null}

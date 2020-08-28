@@ -70,7 +70,7 @@ export class AuthController {
   @Get('/logout')
   async doLogout(@Res() res: Response, @Req() req: Request): Promise<void> {
     await new Promise((resolve, reject) => {
-      req.session.destroy(err => (err ? reject(err) : resolve()));
+      req.session.destroy((err) => (err ? reject(err) : resolve()));
     });
     res.redirect(302, '/login');
   }

@@ -10,11 +10,11 @@ export class UserSessionMiddleware implements NestMiddleware {
     if (req.session && req.session.user_id) {
       this.usersService
         .findById(req.session.user_id)
-        .then(user => {
+        .then((user) => {
           req.user = user;
           next();
         })
-        .catch(err => next(err));
+        .catch((err) => next(err));
     } else {
       next();
     }

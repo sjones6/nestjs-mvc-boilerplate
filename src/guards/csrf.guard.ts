@@ -19,7 +19,7 @@ export class CsrfGuard implements CanActivate {
       return true;
     }
     await new Promise((resolve, reject) => {
-      this.csrf(req, http.getResponse(), err => {
+      this.csrf(req, http.getResponse(), (err) => {
         err ? reject(new CsrfException()) : resolve();
       });
     });

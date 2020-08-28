@@ -7,9 +7,7 @@ const SALT_ROUNDS = 10;
 
 @Injectable()
 export class AuthService {
-  constructor(
-    private usersService: UsersService,
-  ) {}
+  constructor(private usersService: UsersService) {}
 
   async createUser(user: Partial<User>): Promise<User> {
     if (user.password) {
@@ -23,7 +21,10 @@ export class AuthService {
     if (!user) {
       throw new Error('email/password combination invalid');
     }
-    const passwordsMatch: boolean = await bcrypt.compare(password, user.password);
+    const passwordsMatch: boolean = await bcrypt.compare(
+      password,
+      user.password,
+    );
     if (!passwordsMatch) {
       throw new Error('email/password combination invalid');
     }

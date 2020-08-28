@@ -5,13 +5,13 @@ import { CsrfException } from 'src/exceptions/CsrfException';
 @Injectable()
 export class CsrfGuard implements CanActivate {
   private csrf: Function;
-  
+
   constructor() {
     this.csrf = csrf({
-      cookie: true
-    })
-   }
-  
+      cookie: true,
+    });
+  }
+
   async canActivate(context: ExecutionContext) {
     const http = context.switchToHttp();
     const req = http.getRequest();
@@ -20,9 +20,9 @@ export class CsrfGuard implements CanActivate {
     }
     await new Promise((resolve, reject) => {
       this.csrf(req, http.getResponse(), err => {
-        err ? reject(new CsrfException()) : resolve()
-      })
-    })
-    return true
+        err ? reject(new CsrfException()) : resolve();
+      });
+    });
+    return true;
   }
 }

@@ -13,21 +13,19 @@ import { User } from './users/user.entity';
   imports: [
     AuthModule,
     TypeOrmModule.forRoot({
-      type: "sqlite",
-      database: "./data/app.sqlite",
-      entities: [
-        User
-      ],
-      migrationsTableName: "_migrations",
-      migrations: ["dist/migrations/*.js"],
+      type: 'sqlite',
+      database: './data/app.sqlite',
+      entities: [User],
+      migrationsTableName: '_migrations',
+      migrations: ['dist/migrations/*.js'],
       cli: {
-          "migrationsDir": "migration"
+        migrationsDir: 'migration',
       },
       synchronize: true,
       logging: false,
-      keepConnectionAlive: true
+      keepConnectionAlive: true,
     }), // see ormconfig.ts for config options
-    UsersModule
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
@@ -38,7 +36,7 @@ export class AppModule {
       .apply(
         UserSessionMiddleware, // resolves req.user from session
         CsrfMiddleware, // decorates request with a csrfToken() method
-        ViewMiddleware // decorates res.locals with values for template rendering
+        ViewMiddleware, // decorates res.locals with values for template rendering
       )
       .forRoutes({ path: '*', method: RequestMethod.ALL });
   }

@@ -1,9 +1,9 @@
-import { INestApplication } from '@nestjs/common'
+import { INestApplication } from '@nestjs/common';
 
 declare global {
-  namespace NodeJS  {
+  namespace NodeJS {
     interface Global {
-      app: INestApplication
+      app: INestApplication;
     }
   }
 }

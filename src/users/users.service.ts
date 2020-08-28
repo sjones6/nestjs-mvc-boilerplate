@@ -7,9 +7,7 @@ const SALT_ROUNDS = 10;
 
 @Injectable()
 export class UsersService {
-  constructor(
-    private usersRepository: UserRepository,
-  ) {}
+  constructor(private usersRepository: UserRepository) {}
 
   async create(user: Partial<User>): Promise<User> {
     return this.usersRepository.save(user);
@@ -24,7 +22,7 @@ export class UsersService {
   }
 
   findOne(query: Partial<User>): Promise<User> {
-    return this.usersRepository.findOne(query)
+    return this.usersRepository.findOne(query);
   }
 
   async updateOne(id: number, update: Partial<User>): Promise<User> {

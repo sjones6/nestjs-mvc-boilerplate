@@ -11,7 +11,7 @@ export class AppController {
   @Render<IHelloProps>(Hello)
   getHello(): IHelloProps {
     return {
-      name: this.appService.getHello()
-    }
+      name: this.appService.getHello(),
+    };
   }
 }

@@ -8,8 +8,8 @@ import { RenderMiddleware } from 'nest-jsx-template-engine';
 declare global {
   namespace Express {
     export interface Request {
-      csrfToken(): string
-      user: User
+      csrfToken(): string;
+      user: User;
     }
   }
 }
@@ -22,15 +22,15 @@ export class ViewMiddleware extends RenderMiddleware implements NestMiddleware {
       $session: {
         user: req.user as User,
         csrfToken: req.csrfToken(),
-        messages: this.getMessages(req)
-      }
-    }
+        messages: this.getMessages(req),
+      },
+    };
   }
   getMessages(req: Request) {
     return {
       info: req.flash('info') || [],
       success: req.flash('success') || [],
-      error: req.flash('error') || []
-    }
+      error: req.flash('error') || [],
+    };
   }
 }

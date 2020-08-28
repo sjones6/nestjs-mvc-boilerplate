@@ -4,7 +4,9 @@ import { User } from 'src/users/user.entity';
 import { App } from '@interfaces/render';
 
 export function Profile(user: User, props: App.RenderProps) {
-  return <MainLayout title='Profile' {...props}>
-     Hey,             {user.email}!
-  </MainLayout>
+  return (
+    <MainLayout title="Profile" {...props}>
+      Hey, {user.email}!
+    </MainLayout>
+  );
 }

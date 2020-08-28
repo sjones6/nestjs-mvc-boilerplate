@@ -3,7 +3,6 @@
 import request from 'supertest';
 
 describe('AuthController (e2e)', () => {
-
   it('/login (GET)', () => {
     return request(global.app.getHttpServer())
       .get('/login')
